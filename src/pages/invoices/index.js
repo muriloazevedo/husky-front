@@ -25,16 +25,21 @@ const Invoices = () => {
   }
 
   return (
-    invoices.map( (invoice) => {
-      const { attributes } = invoice
-      return <InvoiceItem
-        id={attributes.id}
-        number={attributes.number}
-        due_date={attributes.due_date}
-        company={attributes.company}
-        total_amount={attributes.total_amount}
-      />
-    })
+    <>
+    <button onClick={() => { history.push("/invoice_new") }}>Adicionar</button>
+    {
+      invoices.map( (invoice) => {
+        const { attributes } = invoice
+        return <InvoiceItem
+          id={attributes.id}
+          number={attributes.number}
+          due_date={attributes.due_date}
+          company={attributes.company}
+          total_amount={attributes.total_amount}
+        />
+      })
+    }
+    </>
   )
 }
 

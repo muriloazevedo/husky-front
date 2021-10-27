@@ -29,12 +29,13 @@ const InvoiceDetail = ({ match }) => {
     return null
   }
   return (
-    <div>
-      <span>#{attributes.number}</span>
-      <span>{new Date(attributes.due_date).toLocaleString()}</span>
-      <span>{attributes.company}</span>
-      <span>{attributes.total_amount}</span>
-    </div>
+    <ul>
+      <li>#{attributes.number}</li>
+      <li>{new Date(attributes.due_date).toLocaleString()}</li>
+      <li>{attributes.company}</li>
+      <li>{attributes.billing}</li>
+      <li>{attributes.total_amount}</li>
+    </ul>
   )
 }
 
