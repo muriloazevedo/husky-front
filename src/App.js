@@ -1,5 +1,6 @@
 import { Home } from './pages/home'
 import { Sessions } from './pages/sessions'
+import { Invoices } from './pages/invoices'
 import { Header } from './components/header'
 import {
   BrowserRouter as Router,
@@ -14,6 +15,9 @@ const App = () => {
       <Switch>
         <Route path="/sessions">
           <Sessions />
+        </Route>
+        <Route path="/invoices">
+          <Invoices />
         </Route>
         <Route path="/">
           <Home />

@@ -8,7 +8,7 @@ const Sessions = () => {
     const urlSearchParams = new URLSearchParams(window.location.search)
     const params = Object.fromEntries(urlSearchParams.entries())
     const login_token = params.login_token
-    const result = await fetch("https://run.mocky.io/v3/1412eaea-a457-48a8-b78a-14fd76df2ec6", {
+    const result = await fetch("http://localhost:4000/v1/sessions/create", {
       method: "post",
       headers: {'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -16,7 +16,7 @@ const Sessions = () => {
       })
     }).then(response => response.json())
     console.log(result)
-    localStorage.setItem("token", result.login_token)
+    localStorage.setItem("token", result.auth_token)
    }
   return (
     <div>Sessions</div>
