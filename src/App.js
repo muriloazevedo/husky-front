@@ -1,4 +1,5 @@
 import { Home } from './pages/home'
+import { Sessions } from './pages/sessions'
 import { Header } from './components/header'
 import {
   BrowserRouter as Router,
@@ -11,6 +12,9 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
+        <Route path="/sessions">
+          <Sessions />
+        </Route>
         <Route path="/">
           <Home />
         </Route>
