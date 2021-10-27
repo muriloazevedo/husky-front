@@ -1,11 +1,10 @@
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { InvoiceItem } from '../components/invoice_item'
+import { InvoiceItem } from '../../components/invoice_item'
 
 const Invoices = () => {
   const history = useHistory()
   const [invoices, setInvoices] = useState([])
-  console.log(invoices)
   useEffect( () => {
     const token = localStorage.getItem("token")
     if (!token) {
@@ -25,7 +24,18 @@ const Invoices = () => {
     setInvoices(result.results.data)
   }
 
-  return <span>Invoices</span>
+  return (
+    invoices.map( (invoice) => {
+      const { attributes } = invoice
+      return <InvoiceItem
+        id={attributes.id}
+        number={attributes.number}
+        due_date={attributes.due_date}
+        company={attributes.company}
+        total_amount={attributes.total_amount}
+      />
+    })
+  )
 }
 
 export { Invoices }

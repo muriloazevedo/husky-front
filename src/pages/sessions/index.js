@@ -1,6 +1,8 @@
 import { useEffect } from "react"
+import { useHistory } from "react-router-dom";
 
 const Sessions = () => {
+  const history = useHistory()
   useEffect( () => {
     getToken()
    }, [])
@@ -17,6 +19,7 @@ const Sessions = () => {
     }).then(response => response.json())
     console.log(result)
     localStorage.setItem("token", result.auth_token)
+    history.push("/invoices")
    }
   return (
     <div>Sessions</div>

@@ -1,10 +1,15 @@
-const InvoiceItem = ({ number, due_date, company, total_amount }) => {
+import { Link } from 'react-router-dom'
+
+const InvoiceItem = ({ id, number, due_date, company, total_amount }) => {
   return (
     <div>
-      <span>{number}</span>
-      <span>{due_date}</span>
-      <span>{company}</span>
-      <span>{total_amount}</span>
+      <Link to={`/invoice/${id}`}>
+        <span>#{number}</span>
+        <span>{new Date(due_date).toLocaleString()}</span>
+        <span>{company}</span>
+        <span>{total_amount}</span>
+      </Link>
+
     </div>
   )
 }
